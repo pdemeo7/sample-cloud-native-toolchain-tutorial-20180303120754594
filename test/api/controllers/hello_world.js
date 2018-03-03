@@ -20,7 +20,7 @@ describe('controllers', function() {
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('Hello, stranger!');
+            res.body.should.eql('Hello there, stranger!');
 
             done();
           });
@@ -31,7 +31,7 @@ describe('controllers', function() {
         request(server)
           .get('/hello')
           .query({
-            name: 'Scott'
+            name: 'Peter'
           })
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
@@ -39,7 +39,7 @@ describe('controllers', function() {
           .end(function(err, res) {
             should.not.exist(err);
 
-            res.body.should.eql('Hello, Scott!');
+            res.body.should.eql('Hello there, Peter!');
 
             done();
           });
